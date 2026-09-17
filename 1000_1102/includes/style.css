@@ -1,121 +1,215 @@
-body {
-    background: #111111;
-    color: #dddddd;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
+/* ==========================================================
+   MODERN CLASSIC DEEP RED THEME (STATIC & FAST)
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-h1 {
-    color: #ffffff;
-    font-size: 28px;
-    margin: 10px 0 5px 0;
+body{
+    font-family:'Poppins',sans-serif;
+    color:#ffffff;
+    background:#050505;
+    overflow-x:hidden;
+    text-align:center;
+    padding:20px;
+    position:relative;
 }
 
-h3 {
-    color: #aaaaaa;
-    font-size: 14px;
-    font-weight: normal;
-    margin: 0 0 15px 0;
+/* Static Background Grid */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid #333333;
-    margin: 15px auto;
-    width: 90%;
+/* Titles - Deep Red */
+
+h1{
+    font-size:40px;
+    margin-bottom:8px;
+    color:#ff2a2a;
+    text-shadow:
+    0 0 5px #b30000,
+    0 0 15px #800000,
+    0 0 30px #4d0000;
 }
 
-.btn-container {
-    margin: 20px 0 30px 0;
+h3{
+    color:#c5c5c5;
+    font-size:15px;
+    margin-bottom:20px;
 }
 
-button {
-    background: #2563eb;
-    color: #ffffff;
-    border: none;
-    padding: 12px 35px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 6px;
+hr{
+    border:none;
+    height:2px;
+    width:95%;
+    margin:25px auto;
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    #b30000,
+    #ffffff,
+    #b30000,
+    transparent);
 }
 
-button:disabled, button:hover:disabled {
-    background: #0b2253;
-    cursor: default;
+/* Layout - Original */
+
+.main-layout{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
-button:hover {
-    background: #1d4ed8;
+/* Media Box */
+
+.media-box{
+    width:320px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(179,0,0,.35);
+    border-radius:18px;
+    padding:15px;
+    box-shadow: 0 0 20px rgba(179,0,0,.2);
 }
 
-.main-layout {
-    width: 98%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
+.media-box:hover{
+    box-shadow: 0 0 35px rgba(255,0,0,.45);
 }
 
-.media-box {
-    flex: 1;
-    max-width: 25%;
-    text-align: center;
+.media-box img{
+    width:100%;
+    border-radius:12px;
 }
 
-.media-box img {
-    width: 100%;
-    height: auto;
-    border: 1px solid #222222;
-    border-radius: 4px;
+/* Console Box - Deep Red Text */
+
+#console{
+    flex:1;
+    min-width:520px;
+    height:340px;
+    background:#000;
+    color:#ff3333;
+    font-family:Consolas,monospace;
+    text-align:left;
+    padding:18px;
+    overflow-y:auto;
+    border-radius:18px;
+    border:1px solid #b30000;
+    box-shadow:
+    inset 0 0 15px rgba(179,0,0,.25),
+    0 0 25px rgba(179,0,0,.35);
 }
 
-#console {
-    flex: 3;
-    width: 100%;
-    background: #000000;
-    color: #00ff00;
-    font-family: monospace, monospace;
-    font-size: 14px;
-    padding: 15px;
-    text-align: left;
-    height: 320px;
-    overflow-y: auto;
-    word-break: break-all;
-    border: 1px solid #222222;
-    border-radius: 6px;
-    box-sizing: border-box;
+#console::-webkit-scrollbar{
+    width:10px;
 }
 
-#kernel-options {
-    margin-bottom: 1rem;
+#console::-webkit-scrollbar-thumb{
+    background:#800000;
+    border-radius:20px;
 }
 
-input[type="radio"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid #555;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
-    vertical-align: middle;
+#console::-webkit-scrollbar-track{
+    background:#111;
 }
 
-input[type="radio"]:checked {
-    background-color: #00ff00;
+/* Buttons */
+
+.btn-container{
+    margin:30px 0;
 }
 
-.autoJb {
-    margin-top: 15px;
-    font-size: 14px;
+button{
+    position:relative;
+    overflow:hidden;
+    background:#990000;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:14px 42px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:
+    0 0 10px #800000,
+    0 0 20px rgba(153,0,0,.4);
 }
 
-.mt-2 {
-    margin-top: 2rem;
+button:hover{
+    background:#cc0000;
+    box-shadow:
+    0 0 15px #ff1a1a,
+    0 0 35px rgba(204,0,0,.7);
+}
+
+button:active{
+    transform:scale(.97);
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+    box-shadow:none;
+}
+
+/* Radio Buttons */
+
+#kernel-options{
+    margin-bottom:20px;
+}
+
+label{
+    margin:0 10px;
+}
+
+input[type="radio"]{
+    appearance:none;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    border:2px solid #666;
+    background:#111;
+    cursor:pointer;
+}
+
+input[type="radio"]:checked{
+    background:#cc0000;
+    border-color:#cc0000;
+    box-shadow:
+    0 0 10px #cc0000,
+    0 0 20px #cc0000;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+    .main-layout{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .media-box{
+        width:100%;
+        max-width:420px;
+    }
+
+    #console{
+        min-width:100%;
+        width:100%;
+    }
 }
