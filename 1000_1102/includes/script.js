@@ -81,26 +81,23 @@ function displayCacheProgress() {
     }, 3000);
 }
 
-function initScript() {
+document.addEventListener("DOMContentLoaded", function() {
+    // Cache handling
     if (window.applicationCache) {
         window.applicationCache.addEventListener("progress", cacheProgress, false);
         window.applicationCache.oncached = function (e) { displayCacheProgress(); };
         window.applicationCache.onupdateready = function (e) { displayCacheProgress(); };
     }
 
+    // choose prefered exploit chain
     if (exploitChain == "netctrl") {
-        if (netctrlRadio) netctrlRadio.checked = true;
+        netctrlRadio.checked = true;
     } else {
-        if (lapseRadio) lapseRadio.checked = true;
+        lapseRadio.checked = true;
     }
 
-    if (checkbox) checkbox.checked = autoJbValue;
+    // apply autojb localStorage value
+    checkbox.checked = autoJbValue;
 
     if (autoJbValue) jailbreakCountdown();
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initScript);
-} else {
-    initScript();
-}
+});
